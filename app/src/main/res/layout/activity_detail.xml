@@ -5,46 +5,126 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EAF2FC"
     tools:context=".DetailActivity">
+
     <ScrollView
-        android:background="#EAF2FC"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:fillViewport="true">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- 🖼 Meal Image -->
             <ImageView
                 android:id="@+id/imgMealDetail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:scaleType="centerCrop" />
+                android:layout_marginBottom="12dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/card_bg"
+                android:contentDescription="Meal Image" />
+
+            <!-- 🍽 Meal Name -->
+            <TextView
+                android:text="Meal Name"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#555"
+                android:layout_marginBottom="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/tvMealTitle"
-                android:textSize="24sp"
+                android:text="Cabbage Soup (Shchi)"
                 android:textStyle="bold"
-                android:layout_marginTop="12dp"
+                android:textSize="22sp"
+                android:textColor="#222"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 🏷 Category and Area -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Category:"
+                    android:textStyle="bold"
+                    android:textColor="#555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvMealCategory"
+                    android:text="Vegetarian"
+                    android:textColor="#222"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text=" | "
+                    android:textColor="#888"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvMealArea"
+                    android:text="Russian"
+                    android:textColor="#222"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- 🧂 Ingredients Section -->
+            <TextView
+                android:text="Ingredients"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#333"
+                android:layout_marginBottom="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/tvMealCategory"
-                android:textColor="#777"
-                android:layout_marginBottom="8dp"
+                android:id="@+id/tvIngredients"
+                android:text="• Cabbage\n• Potatoes\n• Carrots\n• Dill\n• Butter"
+                android:textSize="16sp"
+                android:textColor="#444"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 🧾 Recipe Instructions -->
+            <TextView
+                android:text="Instructions"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#333"
+                android:layout_marginBottom="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/tvInstructions"
+                android:text="Boil water, add chopped vegetables, simmer until soft, add dill and butter before serving."
                 android:textSize="16sp"
+                android:textColor="#444"
+                android:lineSpacingExtra="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

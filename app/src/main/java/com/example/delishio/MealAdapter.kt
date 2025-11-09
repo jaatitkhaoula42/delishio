@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class MealAdapter(private val meals: List<Meal>) :
+class MealAdapter(private var meals: List<Meal>) :
     RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
 
     class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -32,17 +32,14 @@ class MealAdapter(private val meals: List<Meal>) :
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         val meal = meals[position]
 
-        // Set text safely
         holder.tvMealName.text = meal.strMeal ?: "Unknown"
         holder.tvMealCategory.text = meal.strCategory ?: "No Category"
         holder.tvMealDescription.text = meal.strArea ?: "No Area"
 
-        // Load image
         Glide.with(holder.itemView.context)
             .load(meal.strMealThumb)
             .into(holder.imgMeal)
 
-        // On click → open DetailActivity
         holder.btnViewRecipe.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetailActivity::class.java)
@@ -54,4 +51,10 @@ class MealAdapter(private val meals: List<Meal>) :
             context.startActivity(intent)
         }
     }
+    fun setFilteredList(newList: List<Meal>) {
+        meals = ArrayList(newList)
+        notifyDataSetChanged()
+    }
+
 }
+
